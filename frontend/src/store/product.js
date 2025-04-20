@@ -7,15 +7,15 @@ export const useProductStore = create((set) => ({
         if(!newProduct.name || !newProduct.price || !newProduct.image) {
             return {success: false, message: "Please fill in all fields."};
         }
-        const res = await fetch("api/products", {
+        const res = await fetch("/api/products", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(newProduct),
         });
         const data = await res.json(); 
         set((state) => ({products: [...state.products, data.data]}));
-        return {success: false, message: "Please created successfully"}
+        return {success: true, message: "Please created successfully"}
     }
 }))
