@@ -1,6 +1,8 @@
-import {Box, HStack, Heading, IconButton, Image, Text, useColorModeValue, Box} from "@chakra-ui/react"
+import {Box, HStack, Heading, IconButton, Image, Text, useColorModeValue} from "@chakra-ui/react"
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons"
-const ProductCard = (product) => {
+const ProductCard = ({product}) => {
+  const textColor = useColorModeValue("gray.600", "gray.200")
+  const bg = useColorModeValue("white", "gray.800")
   return (
     <Box
     shadow='lg'
