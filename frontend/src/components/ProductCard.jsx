@@ -8,8 +8,9 @@ const ProductCard = ({product}) => {
   const {deleteProduct} = useProductStore()
   const toast = useToast()
 
-  const handleDeleteProduct = async (id) => {
-    const {success, message} = await deleteProduct(id)
+  const handleDeleteProduct = async (pid) => {
+    console.log("id", pid)
+    const {success, message} = await deleteProduct(pid)
     if(!success){
         toast(
             {
@@ -54,7 +55,7 @@ const ProductCard = ({product}) => {
 
             <HStack spacing={2}>
                 <IconButton icon={<EditIcon />} colorScheme='blue' />
-                <IconButton icon={<DeleteIcon />} onClick={handleDeleteProduct} colorScheme='red' />
+                <IconButton icon={<DeleteIcon />} onClick={() => handleDeleteProduct(product._id)} colorScheme='red' />
             </HStack>
         </Box>
     </Box>
