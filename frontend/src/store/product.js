@@ -32,6 +32,7 @@ export const useProductStore = create((set) => ({
             return {success: false, message: data.message};
         }
 
+        // update the ui immediately after deleting without a need to refresh.
         set((state) => ({
             products: state.products.filter((product) => product._id !== pid)
         }));
