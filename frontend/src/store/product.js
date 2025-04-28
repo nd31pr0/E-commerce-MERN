@@ -50,7 +50,8 @@ export const useProductStore = create((set) => ({
         if(!data.success) {
             return {success: false, message: data.message};
         }
-        
+
+        // update the ui immediately after updating without a need to refresh.
         set((state) => ({
             products: state.products.map((product) => product._id === pid ? data.data : product)
         }));
