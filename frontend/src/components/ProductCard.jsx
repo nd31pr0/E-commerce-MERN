@@ -15,7 +15,8 @@ import {Box,
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton
+    ModalCloseButton,
+    Button,
 } from "@chakra-ui/react"
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons"
 import { useProductStore } from "../store/product"
@@ -101,7 +102,12 @@ const ProductCard = ({product}) => {
                     </VStack>
                 </ModalBody>
                 <ModalFooter>
-                
+                    <Button colorScheme='blue' mr={3}>
+                        Update
+                    </Button>
+                    <Button variant='ghost' onClick={onClose}>
+                        Cancel
+                    </Button>
                 </ModalFooter>
             </ModalContent>
         
