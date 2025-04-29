@@ -14,6 +14,7 @@ app.use(express.json()); // to parse incoming JSON requests
 
 app.use("/api/products", productRoutes); // to use the product routes)
 
+// serve the frontend files in production
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/dist')));
     app.get('*', (req, res) => {
